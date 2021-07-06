@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <!--  head  -->
+    <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <title>Blog</title>
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+  </head>
+  <body>
+    <div class="container">
+      <!--  header  -->
+      <header class="header">
+    <div class="title">
+        <a href="/" class="logo">Blog</a>
+    </div>
+    <nav class="navbar">
+        <ul class="menu">
+            
+            <li class="menu-item">
+                <a href="/" class="menu-item-link">home</a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives" class="menu-item-link">archives</a>
+            </li>
+            
+        </ul>
+    </nav>
+</header>
+
+
+<!-- <nav class="navbar">
+  <div class="container">
+    <div class="navbar-header header-logo">
+      <a href="/"></a>
+    </div>
+    <div class="menu navbar-right">
+      
+      <input id="switch_default" type="checkbox" class="switch_default" />
+      <label for="switch_default" class="toggleBtn"></label>
+    </div>
+  </div>
+</nav> -->
+      <!--  index.ejs  -->
+      <hr>
+<p>theme: github<br>highlight: androidstudio</p>
+<hr>
+<h1 id="前期准备，知识搜集"><a href="#前期准备，知识搜集" class="headerlink" title="前期准备，知识搜集"></a>前期准备，知识搜集</h1><h2 id="模板引擎"><a href="#模板引擎" class="headerlink" title="模板引擎"></a>模板引擎</h2><p>常用的几种模板引擎有：Swig、EJS、Haml 或 pug。</p>
+<p><strong>1.Swig</strong></p>
+<p>SWIG是一个用来把C/C++程序和Perl，Python，Ruby，Tcl等脚本语言连接起来的接口编译器。它的工作原理是获取C/C++头文件的声明，并使用它们生成可以访问底层C/C++代码的脚本语言。此外，SWIG提供了大量的定制特性，让你可以定制包装过程以使用你的应用。</p>
+<p>SWIG使脚本语言与C/C++代码连接起来相当容易。<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_39445116/article/details/110873807?utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromMachineLearnPai2~default-4.control&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromMachineLearnPai2~default-4.control">具体入门</a></p>
+<p><strong>2.EJS</strong></p>
+<p>“E” 代表什么？可以表示 “可嵌入（Embedded）”，也可以是“高效（Effective）”、“优雅（Elegant）”或者是“简单（Easy）”。EJS 是一套简单的模板语言，帮你利用普通的 JavaScript 代码生成 HTML 页面。EJS 没有如何组织内容的教条；也没有再造一套迭代和控制流语法；有的只是普通的 JavaScript 代码而已。</p>
+<p><strong>3.Haml</strong></p>
+<p>Haml 是一种简洁优美的模板语言，可以应用于Ruby on Rails、 PHP等Web开发平台，可以大大缩减模板代码，减少冗余，提高可读性。并且Haml是一种完备的模板语言，没有牺牲当前模板语言的任何特性。</p>
+<h2 id="前端知识储备"><a href="#前端知识储备" class="headerlink" title="前端知识储备"></a>前端知识储备</h2><p>需要一些前端的知识，<strong>HTML</strong>，<strong>CSS</strong>，<strong>Javascript</strong>，<strong>YML</strong>。本次学习以模仿，走一步学一步为目标。后期有时间后再深入了解。</p>
+<p>由于搜集的资料模板引擎大多为EJS为基础，预处理器为stylus，所以借此模仿。<br>非常感谢此文章给予的参考学习指南，如需详细指导请移步<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1440353">https://cloud.tencent.com/developer/article/1440353</a></p>
+<h1 id="正文：正式从0开始写hexo主题"><a href="#正文：正式从0开始写hexo主题" class="headerlink" title="正文：正式从0开始写hexo主题"></a>正文：正式从0开始写hexo主题</h1><h2 id="框架搭建"><a href="#框架搭建" class="headerlink" title="框架搭建"></a>框架搭建</h2><p>在themes这个目录下，创建一个自己喜欢的主题名字，并创建如下的目录结构。</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/585cd04065444682ae34c5fe896ee76b~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="模块介绍"><a href="#模块介绍" class="headerlink" title="模块介绍"></a>模块介绍</h3><p>在layout文件夹下创建以下三个</p>
+<h4 id="1-布局"><a href="#1-布局" class="headerlink" title="1.布局"></a>1.布局</h4><p><strong>「layout.ejs」</strong> 这个文件是用于布局的，需要在这个文件中引入下面两个ejs文件。（类似于继承）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;&lt;%= theme.language %&gt;&quot;&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;!--  head  --&gt;</span><br><span class="line">    &lt;%- partial(&#x27;_partial/head&#x27;) %&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;container&quot;&gt;</span><br><span class="line">      &lt;!--  header  --&gt;</span><br><span class="line">      &lt;%- partial(&#x27;_partial/header&#x27;) %&gt;</span><br><span class="line">      &lt;!--  index.ejs  --&gt;</span><br><span class="line">      &lt;%- body %&gt;</span><br><span class="line">      &lt;!--  footer  --&gt;</span><br><span class="line">      &lt;%- partial(&#x27;_partial/footer&#x27;) %&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="2-主页"><a href="#2-主页" class="headerlink" title="2.主页"></a>2.主页</h4><p><strong>「index.ejs」</strong> 这个文件是用于主页的，首页将会使用该布局模板生成 HTML 文件，包括一些文章标题，日期之类的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;section class=&quot;posts&quot;&gt;</span><br><span class="line">  &lt;% page.posts.each(function (post) &#123; %&gt;</span><br><span class="line">  &lt;article class=&quot;post&quot;&gt;</span><br><span class="line">      &lt;div class=&quot;post-title&quot;&gt;</span><br><span class="line">          &lt;a class=&quot;post-title-link&quot; href=&quot;&lt;%- url_for(post.path) %&gt;&quot;&gt;&lt;%= post.title %&gt;&lt;/a&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">      &lt;!-- &lt;div class=&quot;post-content&quot;&gt;</span><br><span class="line">          &lt;%- post.excerpt %&gt;</span><br><span class="line">      &lt;/div&gt; --&gt;</span><br><span class="line">      &lt;div class=&quot;post-meta&quot;&gt;</span><br><span class="line">          &lt;span class=&quot;post-time&quot;&gt;&lt;%- date(post.date, &quot;YYYY-MM-DD&quot;) %&gt;&lt;/span&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">  &lt;/article&gt;</span><br><span class="line">  &lt;% &#125;) %&gt;</span><br><span class="line">&lt;/section&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-文章"><a href="#3-文章" class="headerlink" title="3.文章"></a>3.文章</h4><p><strong>「post.ejs」</strong> 这个文件是用于文章的，在 post.ejs 中引入文章，点击后就可以完成跳转</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%- page.content %&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="主题布局"><a href="#主题布局" class="headerlink" title="主题布局"></a>主题布局</h2><h3 id="1-在主题的配置文件中添加导航菜单的配置"><a href="#1-在主题的配置文件中添加导航菜单的配置" class="headerlink" title="1.在主题的配置文件中添加导航菜单的配置"></a>1.在主题的配置文件中添加导航菜单的配置</h3><p>在 theme-example 下的配置文件 _config.yml</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: /</span><br><span class="line">  archives: /archives</span><br></pre></td></tr></table></figure>
+<h3 id="2-保存-HTML-的-head"><a href="#2-保存-HTML-的-head" class="headerlink" title="2.保存 HTML 的 head"></a>2.保存 HTML 的 head</h3><p>在此路径下，新建layout/_partial/<strong>「head.ejs」</strong> 文件，保存 HTML 的 head。CSS那是根据style来渲染，后续会提到。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;</span><br><span class="line">  &lt;meta content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0&quot; name=&quot;viewport&quot;&gt;</span><br><span class="line">  &lt;title&gt;&lt;%= config.title %&gt;&lt;/title&gt;</span><br><span class="line">  &lt;%- css(&#x27;css/style.css&#x27;) %&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="3-编辑导航栏"><a href="#3-编辑导航栏" class="headerlink" title="3.编辑导航栏"></a>3.编辑导航栏</h3><p>在此路径下，新建layout/_partial/<strong>「header.ejs」</strong> 文件，编辑导航栏部分。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;header class=&quot;header&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;title&quot;&gt;</span><br><span class="line">        &lt;a href=&quot;&lt;%= url_for() %&gt;&quot; class=&quot;logo&quot;&gt;&lt;%= config.title %&gt;&lt;/a&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;nav class=&quot;navbar&quot;&gt;</span><br><span class="line">        &lt;ul class=&quot;menu&quot;&gt;</span><br><span class="line">            &lt;% for (name in theme.menu) &#123; %&gt;</span><br><span class="line">            &lt;li class=&quot;menu-item&quot;&gt;</span><br><span class="line">                &lt;a href=&quot;&lt;%- url_for(theme.menu[name]) %&gt;&quot; class=&quot;menu-item-link&quot;&gt;&lt;%= name %&gt;&lt;/a&gt;</span><br><span class="line">            &lt;/li&gt;</span><br><span class="line">            &lt;% &#125; %&gt;</span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">    &lt;/nav&gt;</span><br><span class="line">&lt;/header&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-编辑页脚"><a href="#4-编辑页脚" class="headerlink" title="4.编辑页脚"></a>4.编辑页脚</h3><p>在此路径下，新建layout/_partial/<strong>「footer.ejs」</strong> 文件，编辑页脚部分。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;footer&gt;</span><br><span class="line">    &lt;p&gt;Theme is a test by Jovi Deng &lt;/p&gt;</span><br><span class="line">    &lt;p&gt;Powered by hexo &lt;/p&gt;</span><br><span class="line">&lt;/footer&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="主题样式"><a href="#主题样式" class="headerlink" title="主题样式"></a>主题样式</h2><h3 id="页面导航样式"><a href="#页面导航样式" class="headerlink" title="页面导航样式"></a>页面导航样式</h3><p>创建 /source/css/_partial/header.styl 存放页面导航</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">.header &#123;</span><br><span class="line">    margin-top: 2em</span><br><span class="line">    display: flex</span><br><span class="line">    align-items: baseline</span><br><span class="line">    justify-content: space-between</span><br><span class="line"></span><br><span class="line">    .blog-title .logo &#123;</span><br><span class="line">        color: #AAA;</span><br><span class="line">        font-size: 2em;</span><br><span class="line">        font-family: &quot;Comic Sans MS&quot;,cursive,LiSu,sans-serif;</span><br><span class="line">        text-decoration: none;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    .menu &#123;</span><br><span class="line">        margin: 0;</span><br><span class="line">        padding: 0;</span><br><span class="line"></span><br><span class="line">        .menu-item &#123;</span><br><span class="line">            display: inline-block;</span><br><span class="line">            margin-right: 10px;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .menu-item-link &#123;</span><br><span class="line">            color: #AAA;</span><br><span class="line">            text-decoration: none;</span><br><span class="line"></span><br><span class="line">            &amp;:hover &#123;</span><br><span class="line">                color: #368CCB;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="文章样式"><a href="#文章样式" class="headerlink" title="文章样式"></a>文章样式</h3><p>创建/source/css/_partial/post.styl 存放文章样式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">.post &#123;</span><br><span class="line">    margin: 1em auto;</span><br><span class="line">    padding: 30px 50px;</span><br><span class="line">    background-color: #fff;</span><br><span class="line">    border: 1px solid #ddd;</span><br><span class="line">    box-shadow: 0 0 2px #ddd;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.posts  &#123;</span><br><span class="line">    .post:first-child &#123;</span><br><span class="line">        margin-top: 0;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    .post-title &#123;</span><br><span class="line">        font-size: 1.5em;</span><br><span class="line"></span><br><span class="line">        .post-title-link &#123;</span><br><span class="line">            color: #368CCB;</span><br><span class="line">            text-decoration: none;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    .post-content &#123;</span><br><span class="line">        a &#123;</span><br><span class="line">            color: #368CCB;</span><br><span class="line">            text-decoration: none;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    .post-meta &#123;</span><br><span class="line">        color: #BABABA;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="整体基本样式"><a href="#整体基本样式" class="headerlink" title="整体基本样式"></a>整体基本样式</h3><p>文件夹中创建 style.styl，编写一些基础的样式，引入前面两个</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">body &#123;</span><br><span class="line">    background-color: #F2F2F2;</span><br><span class="line">    font-size: 1.25rem;</span><br><span class="line">    line-height: 1.5;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.container &#123;</span><br><span class="line">    max-width: 960px;</span><br><span class="line">    margin: 0 auto;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@import &quot;_partial/header&quot;;</span><br><span class="line">@import &quot;_partial/post&quot;;</span><br></pre></td></tr></table></figure>
+
+<p>样式基本创建粗略完成后，我们需要把样式添加到页面中（前面出现CSS的时候提到过）<br>在layout/_partial/head.ejs中加入一句</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%- css(&#x27;css/style.css&#x27;) %&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>目前只是一个非常简单的界面，很多知识并不完全弄懂，朦朦胧胧，后续会增加一些功能。写这篇文章主要是为了总结，给一些入门什么都不懂的小白一点框架介绍。非常感谢此文作者<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1440353">https://cloud.tencent.com/developer/article/1440353</a></p>
+<p>以下是成果展示<br><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f0689cec676d4b2baf580739888320ea~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+
+      <!--  footer  -->
+      
+<footer>
+    <p>Theme is a test by Jovi Deng </p>
+    <p>Powered by hexo </p>
+</footer>
+
+    </div>
+  </body>
+</html>

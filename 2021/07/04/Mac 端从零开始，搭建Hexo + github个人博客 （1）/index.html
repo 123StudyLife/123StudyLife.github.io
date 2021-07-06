@@ -6,9 +6,8 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   <title>Blog</title>
-
   
-<link rel="stylesheet" href="/css/style.styl.css">
+<link rel="stylesheet" href="/css/style.css">
 
 <meta name="generator" content="Hexo 5.4.0"></head>
 
@@ -36,12 +35,67 @@
     </nav>
 </header>
 
+
+<!-- <nav class="navbar">
+  <div class="container">
+    <div class="navbar-header header-logo">
+      <a href="/"></a>
+    </div>
+    <div class="menu navbar-right">
+      
+      <input id="switch_default" type="checkbox" class="switch_default" />
+      <label for="switch_default" class="toggleBtn"></label>
+    </div>
+  </div>
+</nav> -->
       <!--  index.ejs  -->
-      <html>
-  <body>
-    <p>this is post.ejs </p>
-  </body>
-</html>
+      <hr>
+<h2 id="theme-github"><a href="#theme-github" class="headerlink" title="theme: github"></a>theme: github</h2><h2 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h2><ol>
+<li><p>先查看是否已经安装过git，打开终端terminal，如果没有根据提示去安装即可</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --version </span><br></pre></td></tr></table></figure></li>
+<li><p>检查是否装过node.js</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node --version</span><br></pre></td></tr></table></figure>
+<p>如果没有，可在此网页上下载LTS稳定版，一步步安装即可<a target="_blank" rel="noopener" href="https://nodejs.org/en/download/">https://nodejs.org/en/download/</a></p>
+</li>
+</ol>
+<p>安装完后，在terminal中输入node –version , npm –version 会显示安装的版本号</p>
+<span id="more"></span>
+<h2 id="Hexo-搭建"><a href="#Hexo-搭建" class="headerlink" title="Hexo 搭建"></a>Hexo 搭建</h2><p>以管理员的身份进入终端</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo su</span><br></pre></td></tr></table></figure>
+<p>此时显示的是sh-x.x#， 我的界面是3.2，此时已经有了root权限，可以开始安装了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+<p>创建一个文件夹并命名，并用cd 命令进入这个目录下。（以后如果出了问题，直接干掉这个文件夹重来就行）</p>
+<p>依次输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Hexo init //初始化</span><br><span class="line">Hexo g    //生成</span><br><span class="line">Hexo s    //启动</span><br></pre></td></tr></table></figure>
+<p>打开浏览器访问 <a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000</a> 即可看到内容</p>
+<h2 id="第一篇博文"><a href="#第一篇博文" class="headerlink" title="第一篇博文"></a>第一篇博文</h2><p>我们的文章，保存在/Users/XXXXX/Blog/source，Blog为我创建的博客文件夹。（以下终端操作均在Blog这个路径下）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo n &quot;XXXXXX&quot; //new </span><br></pre></td></tr></table></figure>
+
+<p>写一篇新的文章后</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g         //generate</span><br><span class="line">hexo s         //start</span><br></pre></td></tr></table></figure>
+<p>即可在本地端口看到新发的文章</p>
+<h2 id="部署到GitHub上"><a href="#部署到GitHub上" class="headerlink" title="部署到GitHub上"></a>部署到GitHub上</h2><ol>
+<li>要有一个GitHub账号</li>
+<li>新建一个Repository（仓库命名必须是 username.github.io）</li>
+<li>配置SSH。</li>
+</ol>
+<p>先检查电脑是否存在ssh</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ~/. ssh</span><br></pre></td></tr></table></figure>
+<p>如果没有，输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;邮件地址&quot;</span><br></pre></td></tr></table></figure>
+<p>连续回车，将生成的SSH粘到GitHub上。</p>
+<p>测试是否成功</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com # 注意邮箱地址不用改</span><br></pre></td></tr></table></figure>
+
+<p>完善git</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;liuxianan&quot;// 你的github用户名，非昵称</span><br><span class="line">git config --global user.email  &quot;xxx@qq.com&quot;// 填写你的github注册邮箱</span><br></pre></td></tr></table></figure>
+
+<p>用hexo命令推到远端</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+
+
+
       <!--  footer  -->
       
 <footer>
